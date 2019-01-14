@@ -2,11 +2,12 @@ FLINT
 ----
 Flint is a project starter for React apps. It uses:
 
-- **Webpack** for transpiling and bundling.
+- **Webpack** for:
+  - [x] transpiling
+  - [x] bundling
+  - [ ] assets management
 
-The next steps for flint are:
-
-- **Webpack** for assets management.
-- **Gulp** for task management.
+- **Gulp** for:
+  - [ ] task management
 
  

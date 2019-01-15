@@ -44,6 +44,7 @@ export default (state, action) => {
         completed: [...state.completed, payload],
       };
     case COMPLETED_DELETE:
+      return {
         ...state,
         completed: [
           ...state.inProgress.filter(item => {

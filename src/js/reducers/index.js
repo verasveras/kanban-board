@@ -5,7 +5,7 @@ import {
   INPROGRESS_DELETE,
   COMPLETED_CREATE,
   COMPLETED_DELETE,
-} from './actions';
+} from './actionTypes';
 
 // root reducer
 export default (state, action) => {

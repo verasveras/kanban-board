@@ -6,6 +6,8 @@ import {
   INPROGRESS_DELETE,
   COMPLETED_CREATE,
   COMPLETED_DELETE,
+  MODAL_SHOW,
+  MODAL_HIDE,
 } from './actionTypes';
 
 export const createBacklogItem = payload => ({
@@ -36,4 +38,12 @@ export const createCompletedItem = payload => ({
 export const deleteCompletedItem = payload => ({
   type: COMPLETED_DELETE,
   payload,
+});
+
+export const showModal = () => ({
+  type: MODAL_SHOW,
+});
+
+export const hideModal = () => ({
+  type: MODAL_HIDE,
 });

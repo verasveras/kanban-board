@@ -5,6 +5,7 @@ const initialState = {
   backlog: [],
   inProgress: [],
   completed: [],
+  showModal: false,
 };
 
 export default createStore(rootReducer, initialState);

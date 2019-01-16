@@ -5,6 +5,8 @@ import {
   INPROGRESS_DELETE,
   COMPLETED_CREATE,
   COMPLETED_DELETE,
+  MODAL_SHOW,
+  MODAL_HIDE,
 } from './actionTypes';
 
 // root reducer
@@ -51,6 +53,15 @@ export default (state, action) => {
             action.payload.id !== item.id;
           }),
         ],
+      };
+    case MODAL_SHOW:
+      return {
+        ...state,
+        showModal: true,
+      };
+    case MODAL_HIDE:
+      return {
+        showModal: false,
       };
     default:
       return state;

@@ -9,11 +9,21 @@ body {
   margin-top: 75px;
 }
 
+.modal {
+  position: fixed;
+  top: 10%;
+  left: 40%;
+  background: #ffffff;
+  border-radius: 5px;
+  height: 300px;
+  padding: 30px;
+}
+
 .column {
   border-radius: 5px;
   background: #ffffff;
-  width: 225px;
-  min-height: 260px;
+  width: 240px;
+  min-height: 105px;
   margin-right: 15px;
   position: relative;
 

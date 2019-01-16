@@ -14,15 +14,25 @@ export class ModalComponent extends React.Component {
   render() {
     return (
       <div className="modal">
-        <div>Create New Task</div>
+        <div className="modal__title">Create New Task</div>
         <form>
-          <input type="text" />
-          <input type="text" />
-          <input type="text" />
+          <input className="input" type="text" placeholder="Title" />
+          <textarea className="input" placeholder="Description (optional)" />
+          <input className="input" type="text" placeholder="Date" />
         </form>
-        <div>
-          <div onClick={this.props.hideModal}> Cancel </div>
-          <div> Create </div>
+        <div className="modal__footer">
+          <div className="button button__cancel" onClick={this.props.hideModal}>
+            {' '}
+            Cancel{' '}
+          </div>
+          <div
+            className="button button__confirm"
+            onClick={() => {
+              alert('create!');
+            }}
+          >
+            Create
+          </div>
         </div>
       </div>
     );

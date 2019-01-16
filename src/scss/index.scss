@@ -11,12 +11,62 @@ body {
 
 .modal {
   position: fixed;
-  top: 10%;
-  left: 40%;
+  top: 30px;
+  left: 35%;
   background: #ffffff;
   border-radius: 5px;
-  height: 300px;
+  height: 230px;
+  width: 350px;
   padding: 30px;
+
+  &__title {
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .input {
+    width: 325px;
+    margin-top: 4px;
+    border: 2px solid #efeff5;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 3px;
+  }
+
+  .input::placeholder {
+    font-style: italic;
+  }
+
+  textarea {
+    resize: none;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+
+    .button {
+      width: 75px;
+      background: red;
+      margin-left: 10px;
+      text-align: center;
+      height: 30px;
+      line-height: 30px;
+      border-radius: 4px;
+      font-size: 13;
+    }
+
+    .button__confirm {
+      color: #ffffff;
+      background: #bdabfc;
+    }
+
+    .button__cancel {
+      color: #bdabfc;
+      background: #ffffff;
+    }
+  }
 }
 
 .column {
@@ -28,6 +78,7 @@ body {
   position: relative;
 
   &__title {
+    font-weight: 700;
     padding: 30px;
   }
 }

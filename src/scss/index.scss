@@ -1,3 +1,10 @@
+// variables
+$purple: #7b5bfb;
+$blue: #4faaf3;
+$gray: #efeff5;
+$gray-dark: #c0c0d8;
+
+// styles
 body {
   background: #f4f3f8;
   font-family: Sans-Serif;
@@ -59,11 +66,11 @@ body {
 
     .button__confirm {
       color: #ffffff;
-      background: #bdabfc;
+      background: $purple;
     }
 
     .button__cancel {
-      color: #bdabfc;
+      color: $purple;
       background: #ffffff;
     }
   }
@@ -79,7 +86,38 @@ body {
 
   &__title {
     font-weight: 700;
-    padding: 30px;
+    padding: 25px 25px 15px 25px;
+  }
+}
+
+.task {
+  border: 1px solid $gray;
+  margin: 0px 10px 10px 10px;
+  font-size: 12px;
+
+  &__tile,
+  &__description,
+  &__date {
+    overflow-wrap: break-word;
+  }
+
+  &__title {
+    font-weight: 700px;
+    margin: 15px 10px 0 10px;
+  }
+
+  &__description {
+    color: $gray-dark;
+    margin: 10px 10px;
+  }
+
+  &__date {
+    color: $purple;
+    margin: 10px 10px;
+
+    i {
+      margin-right: 5px;
+    }
   }
 }
 
@@ -95,10 +133,10 @@ body {
   border-radius: 0px 0px 5px 5px;
 
   &__blue {
-    background: #4faaf3;
+    background: $blue;
   }
 
   &__purple {
-    background: #7b5bfb;
+    background: $purple;
   }
 }

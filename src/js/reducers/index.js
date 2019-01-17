@@ -62,6 +62,7 @@ export default (state, action) => {
       };
     case MODAL_HIDE:
       return {
+        ...state,
         showModal: false,
         createType: null,
       };

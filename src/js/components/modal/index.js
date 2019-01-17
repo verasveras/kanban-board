@@ -32,12 +32,13 @@ export class ModalComponent extends React.Component {
   };
 
   handleCreateCard = () => {
-    const { tile, description, dueDate } = this.state;
+    const { title, description, dueDate } = this.state;
     const payload = {
-      task: { tile, description, dueDate },
+      task: { title, description, dueDate },
       taskType: this.props.createType,
     };
     this.props.createTask(payload);
+    this.props.hideModal();
   };
 
   render() {

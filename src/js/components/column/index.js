@@ -18,6 +18,7 @@ export default class Column extends React.Component {
             title={task.title}
             description={task.description}
             dueDate={task.dueDate}
+            type={this.props.name}
           />
         ))}
         {this.props.showCreateButton && (

@@ -10,15 +10,21 @@ class App extends React.Component {
       <div className="app-container">
         <Column
           name="Backlog"
-          handleCreateTask={this.props.showModal}
+          handleCreateTaskClick={this.props.showModal}
           showCreateButton
+          tasks={this.props.backlogTasks}
         />
         <Column
           name="In Progress"
-          handleCreateTask={this.props.showModal}
+          handleCreateTaskClick={this.props.showModal}
           showCreateButton
+          tasks={this.props.inProgressTasks}
         />
-        <Column name="Completed" handleCreateTask={this.props.showModal} />
+        <Column
+          name="Completed"
+          handleCreateTaskClick={this.props.showModal}
+          tasks={this.props.completedTasks}
+        />
         {this.props.modalVisibile && (
           <ModalContainer>
             <Modal />
@@ -31,11 +37,14 @@ class App extends React.Component {
 
 const mapStateToProps = state => ({
   modalVisibile: state.showModal,
+  backlogTasks: state.backlog,
+  inProgressTasks: state.inProgress,
+  completedTasks: state.completed,
 });
 
 const mapDispatchToProps = dispatch => ({
-  showModal() {
-    dispatch(showModal());
+  showModal(payload) {
+    dispatch(showModal(payload));
   },
 });
 

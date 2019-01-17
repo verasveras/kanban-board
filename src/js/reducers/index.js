@@ -29,7 +29,7 @@ export default (state, action) => {
     case INPROGRESS_CREATE:
       return {
         ...state,
-        inProgress: [...state.inProgress, payload],
+        inProgress: [...state.inProgress, action.payload],
       };
     case INPROGRESS_DELETE:
       return {
@@ -43,7 +43,7 @@ export default (state, action) => {
     case COMPLETED_CREATE:
       return {
         ...state,
-        completed: [...state.completed, payload],
+        completed: [...state.completed, action.payload],
       };
     case COMPLETED_DELETE:
       return {
@@ -58,10 +58,12 @@ export default (state, action) => {
       return {
         ...state,
         showModal: true,
+        createType: action.payload,
       };
     case MODAL_HIDE:
       return {
         showModal: false,
+        createType: null,
       };
     default:
       return state;

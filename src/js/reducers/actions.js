@@ -8,6 +8,8 @@ import {
   COMPLETED_DELETE,
   MODAL_SHOW,
   MODAL_HIDE,
+  CREATE_TYPE_SET,
+  CREATE_TYPE_CLEAR,
 } from './actionTypes';
 
 export const createBacklogItem = payload => ({
@@ -40,10 +42,21 @@ export const deleteCompletedItem = payload => ({
   payload,
 });
 
-export const showModal = () => ({
+export const showModal = payload => ({
   type: MODAL_SHOW,
+  payload,
 });
 
 export const hideModal = () => ({
   type: MODAL_HIDE,
 });
+
+// export const setCreateType = payload => ({
+//   type: CREATE_TYPE_SET,
+//   payload,
+// });
+
+// export const clearCreateType = payload => ({
+//   type: CREATE_TYPE_CLEAR,
+//   payload,
+// });

@@ -69,8 +69,7 @@ export class ModalComponent extends React.Component {
         </form>
         <div className="modal__footer">
           <div className="button button__cancel" onClick={this.props.hideModal}>
-            {' '}
-            Cancel{' '}
+            Cancel
           </div>
           <div
             className="button button__confirm"

@@ -17,7 +17,7 @@ export const createBacklogItem = payload => ({
   payload,
 });
 
-export const deleteItemDelete = payload => ({
+export const deleteBacklogItem = payload => ({
   type: BACKLOG_DELETE,
   payload,
 });
@@ -50,13 +50,3 @@ export const showModal = payload => ({
 export const hideModal = () => ({
   type: MODAL_HIDE,
 });
-
-// export const setCreateType = payload => ({
-//   type: CREATE_TYPE_SET,
-//   payload,
-// });
-
-// export const clearCreateType = payload => ({
-//   type: CREATE_TYPE_CLEAR,
-//   payload,
-// });

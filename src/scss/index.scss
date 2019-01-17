@@ -95,6 +95,8 @@ body {
 .task {
   border: 1px solid $gray;
   margin: 0px 10px 10px 10px;
+  border-radius: 0px 0px 5px 5px;
+
   font-size: 12px;
 
   &__tile,
@@ -166,6 +168,14 @@ body {
   }
 
   &__full {
+    border-radius: 0px 0px 5px 5px;
     width: 100%;
+  }
+
+  &__left {
+    border-radius: 0px 0px 0px 5px;
+  }
+  &__right {
+    border-radius: 0px 0px 5px 0px;
   }
 }

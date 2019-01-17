@@ -1,5 +1,4 @@
 import React from 'react';
-import { Connect } from 'react-redux';
 import Task from '../task';
 
 export default class Column extends React.Component {
@@ -14,13 +13,7 @@ export default class Column extends React.Component {
       <div className="column">
         <div className="column__title">{this.props.name}</div>
         {this.props.tasks.map(task => (
-          <Task
-            title={task.title}
-            description={task.description}
-            dueDate={task.dueDate}
-            type={this.props.name}
-            key={task.id}
-          />
+          <Task task={task} type={this.props.name} key={task.id} />
         ))}
         {this.props.showCreateButton && (
           <div

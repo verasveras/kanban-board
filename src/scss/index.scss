@@ -3,6 +3,7 @@ $purple: #7b5bfb;
 $blue: #4faaf3;
 $gray: #efeff5;
 $gray-dark: #c0c0d8;
+$green: #31d0bd;
 
 // styles
 body {
@@ -83,6 +84,7 @@ body {
   min-height: 105px;
   margin-right: 15px;
   position: relative;
+  padding-bottom: 40px;
 
   &__title {
     font-weight: 700;
@@ -131,12 +133,39 @@ body {
   position: absolute;
   bottom: 0;
   border-radius: 0px 0px 5px 5px;
+}
 
+.task-buttons {
+  height: 30px;
+  line-height: 30px;
+  background: $blue;
+  border-radius: 0px 0px 5px 5px;
+  color: #ffffff;
+  display: flex;
+
+  div {
+    text-align: center;
+  }
+}
+
+.button {
   &__blue {
     background: $blue;
   }
 
   &__purple {
     background: $purple;
+  }
+
+  &__green {
+    background: $green;
+  }
+
+  &__half {
+    width: 50%;
+  }
+
+  &__full {
+    width: 100%;
   }
 }

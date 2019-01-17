@@ -1,4 +1,5 @@
 import React from 'react';
+import Buttons from './buttons';
 
 export default class Task extends React.Component {
   getButtonsForTask = () => {};
@@ -14,9 +15,10 @@ export default class Task extends React.Component {
         <div className="task__title">{this.props.title}</div>
         <div className="task__description">{description}</div>
         <div className="task__date">
-          <i class="fa fa-calendar-day" />
+          <i className="fa fa-calendar-day" />
           {dueDateText}
         </div>
+        <Buttons taskType={this.props.type} taskId={this.props.id} />
       </div>
     );
   }

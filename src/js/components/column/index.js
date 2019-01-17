@@ -19,11 +19,12 @@ export default class Column extends React.Component {
             description={task.description}
             dueDate={task.dueDate}
             type={this.props.name}
+            key={task.id}
           />
         ))}
         {this.props.showCreateButton && (
           <div
-            className={`create-button create-button__${buttonColor}`}
+            className={`create-button button__${buttonColor}`}
             onClick={this.handleCreateTaskClick}
           >
             Create Task

@@ -110,7 +110,7 @@ export class ModalComponent extends React.Component {
           />
           <input
             className="input"
-            type="text"
+            type="date"
             placeholder="Date"
             id="dueDate-input"
             {...(isEditMode

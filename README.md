@@ -4,10 +4,6 @@ Kanban Board is a tiny task management tool.
 
 ### To view the project:
 
-- The most recent build of the project is included:
-	- navigate to the project
-	- `open ./dist/index.html`
-
 - If you want to build the project yourself:
 	- `npm i`
 	- `npm run view`

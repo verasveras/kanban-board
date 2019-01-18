@@ -38,6 +38,12 @@ export class ModalComponent extends React.Component {
     this.props.deleteTask(payload);
   };
 
+  handleEnterKey = (event) => {
+    if (event.key === 'Enter'){
+      this.handleCreateTaskClick();
+    }
+  };
+
   handleDeleteTaskClick = () => {
     this.deleteTask();
     this.props.hideModal();
@@ -94,7 +100,7 @@ export class ModalComponent extends React.Component {
     return (
       <div className="modal">
         <div className="modal__title">Create New Task</div>
-        <form>
+        <form onKeyPress={this.handleEnterKey}>
           <input
             className="input"
             type="text"

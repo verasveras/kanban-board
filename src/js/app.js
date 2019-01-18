@@ -2,7 +2,7 @@ import React from 'react';
 import Column from './components/column';
 import { ModalContainer, Modal } from './components/modal';
 import { connect } from 'react-redux';
-import { showModal } from './reducers/actions';
+import { showModal } from './actions';
 
 class App extends React.Component {
   render() {

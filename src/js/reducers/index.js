@@ -7,7 +7,7 @@ import {
   COMPLETED_DELETE,
   MODAL_SHOW,
   MODAL_HIDE,
-} from './actionTypes';
+} from '../actions/actionTypes';
 import { generateUniqueId } from '../utils';
 
 // root reducer

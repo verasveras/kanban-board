@@ -24,7 +24,7 @@ body {
   left: 35%;
   background: #ffffff;
   border-radius: 5px;
-  height: 230px;
+  // height: 230px;
   width: 350px;
   padding: 30px;
 
@@ -48,6 +48,15 @@ body {
 
   textarea {
     resize: none;
+  }
+
+  &__alert {
+    font-size: 14px;
+    margin: 5px 0;
+    background: $blue;
+    color: #ffffff;
+    padding: 8px;
+    border-radius: 4px;
   }
 
   &__footer {
@@ -126,6 +135,8 @@ body {
   &__date {
     color: $purple;
     margin: 10px 10px;
+    display: flex;
+    justify-content: space-between;
 
     &-completed {
       color: $green;

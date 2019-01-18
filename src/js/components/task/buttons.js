@@ -7,7 +7,7 @@ import {
   deleteInProgressItem,
   createCompletedItem,
   deleteCompletedItem,
-} from '../../reducers/actions';
+} from '../../actions';
 
 class Buttons extends React.Component {
   handleClickGoPrevious = () => {
@@ -33,47 +33,51 @@ class Buttons extends React.Component {
   };
 
   render() {
-    if (this.props.taskType === 'Backlog') {
-      return (
-        <div className="task-buttons" onClick={this.handleClickGoNext}>
-          <div className="button__purple button__full"> Start </div>
-        </div>
-      );
-    } else if (this.props.taskType === 'In Progress') {
-      return (
-        <div className="task-buttons">
-          <div
-            className="button__blue button__half button__left"
-            onClick={this.handleClickGoPrevious}
-          >
-            Backlog
+    let button = null;
+    switch (this.props.taskType) {
+      case 'Backlog':
+        button = (
+          <div className="task-buttons" onClick={this.handleClickGoNext}>
+            <div className="button__purple button__full"> Start </div>
           </div>
-          <div
-            className="button__green button__half button__right"
-            onClick={this.handleClickGoNext}
-          >
-            Complete
+        );
+        break;
+      case 'In Progress':
+        button = (
+          <div className="task-buttons">
+            <div
+              className="button__blue button__half button__left"
+              onClick={this.handleClickGoPrevious}
+            >
+              Backlog
+            </div>
+            <div
+              className="button__green button__half button__right"
+              onClick={this.handleClickGoNext}
+            >
+              Complete
+            </div>
           </div>
-        </div>
-      );
-    } else if (this.props.taskType === 'Completed') {
-      return (
-        <div className="task-buttons">
-          <div
-            className="button__blue button__full"
-            onClick={this.handleClickGoPrevious}
-          >
-            Undo
+        );
+        break;
+      case 'Completed':
+        button = (
+          <div className="task-buttons">
+            <div
+              className="button__blue button__full"
+              onClick={this.handleClickGoPrevious}
+            >
+              Undo
+            </div>
           </div>
-        </div>
-      );
+        );
+        break;
     }
+    return button;
   }
 }
 
-const mapStateToProps = state => ({
-  createType: state.createType,
-});
+const mapStateToProps = state => ({});
 
 const mapDispatchToProps = dispatch => ({
   moveFromBacklogToInProgress(payload) {

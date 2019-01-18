@@ -15,8 +15,11 @@ export default class Task extends React.Component {
         <div
           className={`task__date ${isCompleted ? 'task__date-completed' : ''}`}
         >
-          <i className="fa fa-calendar-day" />
-          {dueDateText}
+          <div>
+            <i className="fa fa-calendar-day" />
+            {dueDateText}
+          </div>
+          {!isCompleted && <i className="fa fa-pencil-alt" />}
         </div>
         <Buttons taskType={this.props.type} task={task} />
       </div>

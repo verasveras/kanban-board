@@ -5,7 +5,7 @@ import {
   createBacklogItem,
   createInProgressItem,
   hideModal,
-} from '../../reducers/actions';
+} from '../../actions';
 
 export class ModalContainer extends React.Component {
   render() {
@@ -18,6 +18,7 @@ export class ModalComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      isValid: true,
       title: '',
       description: '',
       dueDate: '',
@@ -33,6 +34,12 @@ export class ModalComponent extends React.Component {
 
   handleCreateCard = () => {
     const { title, description, dueDate } = this.state;
+    if (!title || !dueDate) {
+      this.setState({
+        isValid: false,
+      });
+      return;
+    }
     const payload = {
       task: { title, description, dueDate },
       taskType: this.props.createType,
@@ -67,6 +74,11 @@ export class ModalComponent extends React.Component {
             onChange={this.handleInputChange}
           />
         </form>
+        {!this.state.isValid && (
+          <div className="modal__alert">
+            You need a task name and due date to create a task!
+          </div>
+        )}
         <div className="modal__footer">
           <div className="button button__cancel" onClick={this.props.hideModal}>
             Cancel

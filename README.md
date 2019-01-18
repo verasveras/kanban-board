@@ -17,5 +17,6 @@ To view the project:
 To work on the project:
 	- `open ./dist/index.html`
 	- `npm i`
-	- `npm run watch`
+	- `npm run start`
+	- in another tab `npm run watch`
 	- make your changes!

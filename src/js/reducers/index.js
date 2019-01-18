@@ -8,6 +8,7 @@ import {
   MODAL_SHOW,
   MODAL_HIDE,
 } from './actionTypes';
+import { generateUniqueId } from '../utils';
 
 // root reducer
 export default (state, action) => {
@@ -15,43 +16,46 @@ export default (state, action) => {
     case BACKLOG_CREATE:
       return {
         ...state,
-        backlog: [...state.backlog, action.payload],
+        backlog: [
+          ...state.backlog,
+          { ...action.payload, id: generateUniqueId() },
+        ],
       };
     case BACKLOG_DELETE:
       return {
         ...state,
         backlog: [
-          ...state.backlog.filter(item => {
-            action.payload.id !== item.id;
-          }),
+          ...state.backlog.filter(item => action.payload.id !== item.id),
         ],
       };
     case INPROGRESS_CREATE:
       return {
         ...state,
-        inProgress: [...state.inProgress, action.payload],
+        inProgress: [
+          ...state.inProgress,
+          { ...action.payload, id: generateUniqueId() },
+        ],
       };
     case INPROGRESS_DELETE:
       return {
         ...state,
         inProgress: [
-          ...state.inProgress.filter(item => {
-            action.payload.id !== item.id;
-          }),
+          ...state.inProgress.filter(item => action.payload.id !== item.id),
         ],
       };
     case COMPLETED_CREATE:
       return {
         ...state,
-        completed: [...state.completed, action.payload],
+        completed: [
+          ...state.completed,
+          { ...action.payload, id: generateUniqueId() },
+        ],
       };
     case COMPLETED_DELETE:
       return {
         ...state,
         completed: [
-          ...state.inProgress.filter(item => {
-            action.payload.id !== item.id;
-          }),
+          ...state.completed.filter(item => action.payload.id !== item.id),
         ],
       };
     case MODAL_SHOW:

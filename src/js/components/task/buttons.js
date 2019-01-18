@@ -77,20 +77,20 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   moveFromBacklogToInProgress(payload) {
-    deleteBacklogItem(payload);
-    createInProgressItem(payload);
+    dispatch(deleteBacklogItem(payload));
+    dispatch(createInProgressItem(payload));
   },
   moveFromInProgressToBacklog(payload) {
-    deleteInProgressItem(payload);
-    createBacklogItem(payload);
+    dispatch(deleteInProgressItem(payload));
+    dispatch(createBacklogItem(payload));
   },
   moveFromInProgressToComplete(payload) {
-    deleteInProgressItem(payload);
-    createCompletedItem(payload);
+    dispatch(deleteInProgressItem(payload));
+    dispatch(createCompletedItem(payload));
   },
   moveFromCompleteToInProgress(payload) {
-    deleteCompletedItem(payload);
-    createInProgressItem(payload);
+    dispatch(deleteCompletedItem(payload));
+    dispatch(createInProgressItem(payload));
   },
 });
 

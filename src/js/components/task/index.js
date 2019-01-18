@@ -2,11 +2,9 @@ import React from 'react';
 import Buttons from './buttons';
 
 export default class Task extends React.Component {
-  getButtonsForTask = () => {};
   render() {
     const { task } = this.props;
-    const description = task.description ? description : 'N/A.';
-
+    const description = task.description ? task.description : 'N/A';
     const dueDateText = `Due ${task.dueDate}`;
 
     return (

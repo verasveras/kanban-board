@@ -15,7 +15,7 @@ module.exports = {
 	mode: 'none',
 	plugins: [
 		new webpack.HotModuleReplacementPlugin(),
-		new CleanWebpackPlugin('dist/js'),
+		// new CleanWebpackPlugin('dist/js'),
 	],
 	module: {
 		rules: [

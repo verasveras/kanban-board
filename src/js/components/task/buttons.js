@@ -11,6 +11,8 @@ import {
 
 class Buttons extends React.Component {
   handleClickGoPrevious = () => {
+    // map the component type to the appropriate behavior,
+    // this lets us use more descriptiivn function names
     switch (this.props.taskType) {
       case 'In Progress':
         this.props.moveFromInProgressToBacklog(this.props.task);
@@ -34,6 +36,8 @@ class Buttons extends React.Component {
 
   render() {
     let button = null;
+    // button styling and behavior is differnt enough to warrant different
+    // jsx, be explicit in what's getting rendered.
     switch (this.props.taskType) {
       case 'Backlog':
         button = (

@@ -28,6 +28,8 @@ export class ModalComponent extends React.Component {
   }
 
   deleteTask = () => {
+    // if deleting an existing task, it was probably not changed,
+    // so grab the info off of global state and not component state
     const { title, description, dueDate, id } = this.props.taskInFocus;
     const payload = {
       task: { title, description, dueDate, id },
@@ -52,6 +54,8 @@ export class ModalComponent extends React.Component {
     let { title, description, dueDate } = this.state;
     const isEditMode = this.props.modalMode == 'edit';
 
+    // if not in edit mode, that means there has to be task info
+    // on state, since there's no previous taks to grab it from
     if ((!title || !dueDate) && !isEditMode) {
       this.setState({
         isValid: false,
@@ -69,6 +73,8 @@ export class ModalComponent extends React.Component {
         : this.props.taskInFocus.description;
     }
 
+    // editing a task is deleting it and creating a new one with the new
+    // information. so we have to delete the ask if the modal is in edit mode.
     if (isEditMode) {
       this.deleteTask();
     }

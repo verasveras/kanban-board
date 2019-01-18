@@ -25,9 +25,7 @@ export default (state, action) => {
     case BACKLOG_DELETE:
       return {
         ...state,
-        backlog: [
-          ...state.backlog.filter(item => action.payload.id !== item.id),
-        ],
+        backlog: state.backlog.filter(item => action.payload.id !== item.id),
       };
     case INPROGRESS_CREATE:
       return {
@@ -40,9 +38,7 @@ export default (state, action) => {
     case INPROGRESS_DELETE:
       return {
         ...state,
-        inProgress: [
-          ...state.inProgress.filter(item => action.payload.id !== item.id),
-        ],
+        inProgress:state.inProgress.filter(item => action.payload.id !== item.id),
       };
     case COMPLETED_CREATE:
       return {
@@ -55,9 +51,7 @@ export default (state, action) => {
     case COMPLETED_DELETE:
       return {
         ...state,
-        completed: [
-          ...state.completed.filter(item => action.payload.id !== item.id),
-        ],
+        completed: state.completed.filter(item => action.payload.id !== item.id),
       };
     case MODAL_CREATE_SHOW:
       return {

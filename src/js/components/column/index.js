@@ -7,7 +7,6 @@ export default class Column extends React.Component {
   };
 
   render() {
-    // do this in a map
     const buttonColor = this.props.name === 'Backlog' ? 'blue' : 'purple';
     return (
       <div className="column">

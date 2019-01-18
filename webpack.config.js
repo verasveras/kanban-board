@@ -6,7 +6,7 @@ module.exports = {
 	entry: './src/index.js',
 	output: {
 		filename: 'index.js',
-		path: path.resolve(__dirname, 'dist'),
+		path: path.resolve(__dirname, 'dist/js'),
 	},
 	devtool: 'inline-source-map',
 	devServer: {
@@ -15,7 +15,7 @@ module.exports = {
 	mode: 'none',
 	plugins: [
 		new webpack.HotModuleReplacementPlugin(),
-		new CleanWebpackPlugin('build'),
+		new CleanWebpackPlugin('dist/js'),
 	],
 	module: {
 		rules: [
@@ -52,7 +52,4 @@ module.exports = {
 			},
 		],
 	},
-	// optimization: {
-	// 	minimize: true,
-	// },
 };

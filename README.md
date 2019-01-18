@@ -1,12 +1,7 @@
-## FLINT
+## KANBAN-BOARD
 
-Flint is a project starter for React apps. It uses:
+Kanban Board is a tiny task management tool.
 
-- **Webpack** for:
+To view the project:
 
-  - [x] transpiling
-  - [x] bundling
-  - [ ] assets management
-
-- **Gulp** for:
-  - [ ] task management
+- The most recent build of the project is included. Open ./dist/index.html to view.

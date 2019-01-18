@@ -42,7 +42,7 @@ class Buttons extends React.Component {
       case 'Backlog':
         button = (
           <div className="task-buttons" onClick={this.handleClickGoNext}>
-            <div className="button__purple button__full"> Start </div>
+            <div className="button button__purple button__full"> Start </div>
           </div>
         );
         break;
@@ -50,13 +50,13 @@ class Buttons extends React.Component {
         button = (
           <div className="task-buttons">
             <div
-              className="button__blue button__half button__left"
+              className="button button__blue button__half button__left"
               onClick={this.handleClickGoPrevious}
             >
               Backlog
             </div>
             <div
-              className="button__green button__half button__right"
+              className="button button__green button__half button__right"
               onClick={this.handleClickGoNext}
             >
               Complete
@@ -68,7 +68,7 @@ class Buttons extends React.Component {
         button = (
           <div className="task-buttons">
             <div
-              className="button__blue button__full"
+              className="button button__blue button__full"
               onClick={this.handleClickGoPrevious}
             >
               Undo

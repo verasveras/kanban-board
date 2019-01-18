@@ -16,7 +16,7 @@ export default class Column extends React.Component {
         ))}
         {this.props.showCreateButton && (
           <div
-            className={`create-button button__${buttonColor}`}
+            className={`button create-button button__${buttonColor}`}
             onClick={this.handleCreateTaskClick}
           >
             Create Task

@@ -2,7 +2,7 @@
 
 Kanban Board is a tiny task management tool.
 
-To view the project:
+### To view the project:
 
 - The most recent build of the project is included:
 	- navigate to the project
@@ -14,9 +14,10 @@ To view the project:
 	- project will be served on http://localhost:8080/
 
 
-To work on the project:
-	- `open ./dist/index.html`
+### To work on the project:
+
+- To start your dev build:
 	- `npm i`
-	- `npm run start`
+	- `npm start`
 	- in another tab `npm run watch`
 	- make your changes!

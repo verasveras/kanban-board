@@ -39,6 +39,7 @@ export class ModalComponent extends React.Component {
   };
 
   handleEnterKey = (event) => {
+    event.preventDefault();
     if (event.key === 'Enter'){
       this.handleCreateTaskClick();
     }

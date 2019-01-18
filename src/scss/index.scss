@@ -97,8 +97,11 @@ body {
   border: 1px solid $gray;
   margin: 0px 10px 10px 10px;
   border-radius: 0px 0px 5px 5px;
-
   font-size: 12px;
+
+  &-completed {
+    background: $gray;
+  }
 
   &__tile,
   &__description,
@@ -114,11 +117,19 @@ body {
   &__description {
     color: $gray-dark;
     margin: 10px 10px;
+
+    &-completed {
+      color: $green;
+    }
   }
 
   &__date {
     color: $purple;
     margin: 10px 10px;
+
+    &-completed {
+      color: $green;
+    }
 
     i {
       margin-right: 5px;

@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import {
   createBacklogItem,
   createInProgressItem,
+  deleteBacklogItem,
+  deleteInProgressItem,
   hideModal,
 } from '../../actions';
 
@@ -25,6 +27,20 @@ export class ModalComponent extends React.Component {
     };
   }
 
+  deleteTask = () => {
+    const { title, description, dueDate, id } = this.props.taskInFocus;
+    const payload = {
+      task: { title, description, dueDate, id },
+      taskType: this.props.createType,
+    };
+    this.props.deleteTask(payload);
+  };
+
+  handleDeleteTaskClick = () => {
+    this.deleteTask();
+    this.props.hideModal();
+  };
+
   handleInputChange = event => {
     const inputName = event.currentTarget.id.split('-')[0];
     this.setState({
@@ -32,23 +48,43 @@ export class ModalComponent extends React.Component {
     });
   };
 
-  handleCreateCard = () => {
-    const { title, description, dueDate } = this.state;
-    if (!title || !dueDate) {
+  handleCreateTaskClick = () => {
+    let { title, description, dueDate } = this.state;
+    const isEditMode = this.props.modalMode == 'edit';
+
+    if ((!title || !dueDate) && !isEditMode) {
       this.setState({
         isValid: false,
       });
       return;
     }
+
+    // if something isn't on state that means they didnt update it
+    // grab old value
+    if ((!title || !dueDate) && isEditMode) {
+      title = title ? title : this.props.taskInFocus.title;
+      dueDate = dueDate ? dueDate : this.props.taskInFocus.dueDate;
+      description = description
+        ? description
+        : this.props.taskInFocus.description;
+    }
+
+    if (isEditMode) {
+      this.deleteTask();
+    }
+
     const payload = {
       task: { title, description, dueDate },
       taskType: this.props.createType,
     };
+
     this.props.createTask(payload);
     this.props.hideModal();
   };
 
   render() {
+    const isEditMode = this.props.modalMode === 'edit';
+
     return (
       <div className="modal">
         <div className="modal__title">Create New Task</div>
@@ -58,12 +94,18 @@ export class ModalComponent extends React.Component {
             type="text"
             placeholder="Title"
             id="title-input"
+            {...(isEditMode
+              ? { defaultValue: this.props.taskInFocus.title }
+              : {})}
             onChange={this.handleInputChange}
           />
           <textarea
             className="input"
             placeholder="Description (optional)"
             id="description-input"
+            {...(isEditMode
+              ? { defaultValue: this.props.taskInFocus.description }
+              : {})}
             onChange={this.handleInputChange}
           />
           <input
@@ -71,6 +113,9 @@ export class ModalComponent extends React.Component {
             type="text"
             placeholder="Date"
             id="dueDate-input"
+            {...(isEditMode
+              ? { defaultValue: this.props.taskInFocus.dueDate }
+              : {})}
             onChange={this.handleInputChange}
           />
         </form>
@@ -80,14 +125,22 @@ export class ModalComponent extends React.Component {
           </div>
         )}
         <div className="modal__footer">
+          {isEditMode && (
+            <div
+              className="button button__delete"
+              onClick={this.handleDeleteTaskClick}
+            >
+              Delete
+            </div>
+          )}
           <div className="button button__cancel" onClick={this.props.hideModal}>
             Cancel
           </div>
           <div
             className="button button__confirm"
-            onClick={this.handleCreateCard}
+            onClick={this.handleCreateTaskClick}
           >
-            Create
+            {isEditMode ? 'Edit' : 'Create'}
           </div>
         </div>
       </div>
@@ -95,13 +148,20 @@ export class ModalComponent extends React.Component {
   }
 }
 
-const taskTypeToActionMap = {
+const taskTypeToCreateActionMap = {
   Backlog: createBacklogItem,
   'In Progress': createInProgressItem,
 };
 
+const taskTypeToDeleteActionMap = {
+  Backlog: deleteBacklogItem,
+  'In Progress': deleteInProgressItem,
+};
+
 const mapStateToProps = state => ({
   createType: state.createType,
+  modalMode: state.modalMode,
+  taskInFocus: state.taskInFocus,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -109,7 +169,11 @@ const mapDispatchToProps = dispatch => ({
     dispatch(hideModal());
   },
   createTask({ task, taskType }) {
-    const action = taskTypeToActionMap[taskType];
+    const action = taskTypeToCreateActionMap[taskType];
+    dispatch(action(task));
+  },
+  deleteTask({ task, taskType }) {
+    const action = taskTypeToDeleteActionMap[taskType];
     dispatch(action(task));
   },
 });

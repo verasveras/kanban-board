@@ -2,7 +2,7 @@ import React from 'react';
 import Column from './components/column';
 import { ModalContainer, Modal } from './components/modal';
 import { connect } from 'react-redux';
-import { showModal } from './actions';
+import { showModalCreateMode } from './actions';
 
 class App extends React.Component {
   render() {
@@ -44,7 +44,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   showModal(payload) {
-    dispatch(showModal(payload));
+    dispatch(showModalCreateMode(payload));
   },
 });
 

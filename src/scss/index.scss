@@ -4,6 +4,7 @@ $blue: #4faaf3;
 $gray: #efeff5;
 $gray-dark: #c0c0d8;
 $green: #31d0bd;
+$red: #ff001f;
 
 // styles
 body {
@@ -53,7 +54,7 @@ body {
   &__alert {
     font-size: 14px;
     margin: 5px 0;
-    background: $blue;
+    background: $red;
     color: #ffffff;
     padding: 8px;
     border-radius: 4px;
@@ -83,6 +84,13 @@ body {
     .button__cancel {
       color: $purple;
       background: #ffffff;
+    }
+
+    .button__delete {
+      color: #ffffff;
+      background: $red;
+      margin-right: 120px;
+      margin-left: 1px;
     }
   }
 }
@@ -184,6 +192,10 @@ body {
 
   &__green {
     background: $green;
+  }
+
+  &__red {
+    background: $red;
   }
 
   &__half {

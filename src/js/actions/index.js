@@ -6,7 +6,8 @@ import {
   INPROGRESS_DELETE,
   COMPLETED_CREATE,
   COMPLETED_DELETE,
-  MODAL_SHOW,
+  MODAL_CREATE_SHOW,
+  MODAL_EDIT_SHOW,
   MODAL_HIDE,
   CREATE_TYPE_SET,
   CREATE_TYPE_CLEAR,
@@ -42,8 +43,13 @@ export const deleteCompletedItem = payload => ({
   payload,
 });
 
-export const showModal = payload => ({
-  type: MODAL_SHOW,
+export const showModalCreateMode = payload => ({
+  type: MODAL_CREATE_SHOW,
+  payload,
+});
+
+export const showModalEditMode = payload => ({
+  type: MODAL_EDIT_SHOW,
   payload,
 });
 

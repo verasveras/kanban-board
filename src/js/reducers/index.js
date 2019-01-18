@@ -5,7 +5,8 @@ import {
   INPROGRESS_DELETE,
   COMPLETED_CREATE,
   COMPLETED_DELETE,
-  MODAL_SHOW,
+  MODAL_CREATE_SHOW,
+  MODAL_EDIT_SHOW,
   MODAL_HIDE,
 } from '../actions/actionTypes';
 import { generateUniqueId } from '../utils';
@@ -58,16 +59,26 @@ export default (state, action) => {
           ...state.completed.filter(item => action.payload.id !== item.id),
         ],
       };
-    case MODAL_SHOW:
+    case MODAL_CREATE_SHOW:
       return {
         ...state,
         showModal: true,
+        modalMode: 'create',
         createType: action.payload,
+      };
+    case MODAL_EDIT_SHOW:
+      return {
+        ...state,
+        showModal: true,
+        modalMode: 'edit',
+        taskInFocus: action.payload.task,
+        createType: action.payload.taskType,
       };
     case MODAL_HIDE:
       return {
         ...state,
         showModal: false,
+        modalMode: null,
         createType: null,
       };
     default:

@@ -7,6 +7,8 @@ const initialState = {
   inProgress: [],
   completed: [],
   showModal: false,
+  modalMode: null,
+  taskInFocus: null,
   createType: null,
 };
 

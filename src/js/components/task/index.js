@@ -1,7 +1,16 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Buttons from './buttons';
+import { showModalEditMode } from '../../actions';
 
-export default class Task extends React.Component {
+class Task extends React.Component {
+  handleEditClick = () => {
+    this.props.showModalEditMode({
+      task: this.props.task,
+      taskType: this.props.type,
+    });
+  };
+
   render() {
     const { task } = this.props;
     const isCompleted = this.props.type === 'Completed';
@@ -19,10 +28,24 @@ export default class Task extends React.Component {
             <i className="fa fa-calendar-day" />
             {dueDateText}
           </div>
-          {!isCompleted && <i className="fa fa-pencil-alt" />}
+          {!isCompleted && (
+            <i className="fa fa-pencil-alt" onClick={this.handleEditClick} />
+          )}
         </div>
         <Buttons taskType={this.props.type} task={task} />
       </div>
     );
   }
 }
+
+const mapStateToProps = () => ({});
+const mapDispatchToProps = dispatch => ({
+  showModalEditMode(payload) {
+    dispatch(showModalEditMode(payload));
+  },
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Task);

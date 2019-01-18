@@ -14,6 +14,6 @@ Kanban Board is a tiny task management tool.
 
 - To start your dev build:
 	- `npm i`
-	- `npm start`
-	- in another tab `npm run watch`
+	- `npm run watch`
+	- in another tab  `npm start`
 	- make your changes!
